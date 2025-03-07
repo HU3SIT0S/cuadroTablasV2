@@ -1,4 +1,5 @@
-const express = require('express'); // Punto y coma agregado
+const express = require('express');
+// Punto y coma agregado
 const app = express();
 
 // Middleware para parsear JSON
