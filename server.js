@@ -1,17 +1,18 @@
 const express = require('express');
-// Punto y coma agregado
+const path = require('path')
+
 const app = express();
 
-// Middleware para parsear JSON
-app.use(express.json());
+//serve static files
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// Ruta de ejemplo
-app.get('/', (req, res) => {
-  res.send('Hello World'); // 2 espacios de indentación
+//For any request that doesn't match a static file, serve index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-// Iniciar el servidor
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`); // Punto y coma agregado
-});
+//Expose
+const PORT = process.env.PORT || 8000; 
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
