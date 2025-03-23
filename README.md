@@ -255,7 +255,7 @@ git add .
 git commit -m "Commit message"
 ```
 ```
-git push origin main
+git push origin develop
 ```
 Description: Configures automatic deployment to Azure.
 
